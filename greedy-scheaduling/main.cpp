@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "graph.h"
+#include "mst.h"
 using namespace std;
 
 int main(){
@@ -12,6 +13,7 @@ int main(){
     int N = edges.size();
 
     Graph g = Graph(edges, N);
-
     g.printGraph();
+
+    MST::primsAlgorithm(g);
 }

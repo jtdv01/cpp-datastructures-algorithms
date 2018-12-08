@@ -1,9 +1,12 @@
 CCFLAGS = -std=c++11
-graph.o: graph.cpp graph.h
+graph: graph.cpp graph.h
 	g++ $(CCFLAGS) -c graph.h graph.cpp
 
-main: graph.o
-	g++ $(CCFLAGS) graph.o main.cpp -o main.o
+mst: graph
+	g++ $(CCFLAGS) -c graph.o mst.cpp
+
+main: graph mst main.cpp
+	g++ $(CCFLAGS) graph.o mst.o main.cpp -o main.o
 
 clean:
-	rm *.o
+	rm *.o *.gch
